@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder for Gen Z</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .pricing {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .pricing h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .price {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        .price span {
+            font-size: 0.5em;
+            color: #7f8c8d;
+        }
+        .features {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .usage {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Resume Builder for Gen Z</h1>
+            <p>Build a job‑winning resume in 30 seconds – just paste the job posting, and let AI craft a tailored, ATS‑optimized resume.</p>
+        </div>
+        
+        <div class="content">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class="usage">
+                <strong>Free generations used:</strong> {{ generations }} / 1
+                {% if generations >= 1 %}
+                    <br><a href="/subscribe">Subscribe for unlimited access</a>
+                {% endif %}
+            </div>
+            
+            <form action="/generate" method="POST">
+                <div class="form-group">
+                    <label for="job_description">Job Description (paste the full posting)</label>
+                    <textarea id="job_description" name="job_description" rows="8" placeholder="Paste the job description here..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Your Experience (optional)</label>
+                    <textarea id="experience" name="experience" rows="6" placeholder="Briefly describe your relevant experience..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn" {% if generations >= 1 %}disabled{% endif %}>
+                    Generate Resume (Free)
+                </button>
+            </form>
+            
+            <div class="pricing">
+                <h3>Unlimited Access</h3>
+                <div class="price">$9<span>/month</span></div>
+                <ul class="features">
+                    <li>Unlimited resume generations</li>
+                    <li>ATS-optimized templates</li>
+                    <li>Export to PDF</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="/subscribe" class="btn">Subscribe Now</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

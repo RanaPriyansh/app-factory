@@ -1,0 +1,43 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [main]
+    paths: ['apps/**/iOS/**']
+  pull_request:
+    branches: [main]
+    paths: ['apps/**/iOS/**']
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Select Xcode
+      run: sudo xcode-select -s /Applications/Xcode_15.0.app/Contents/Developer
+    
+    - name: Build
+      run: |
+        # For each app in apps/
+        for app in apps/*; do
+          if [ -d "$app/iOS" ]; then
+            app_name=$(basename "$app")
+            echo "Building $app_name"
+            # Find .xcodeproj
+            xcodeproj=$(find "$app/iOS" -name "*.xcodeproj" | head -1)
+            if [ -n "$xcodeproj" ]; then
+              scheme=$(basename "$xcodeproj" .xcodeproj)
+              xcodebuild -project "$xcodeproj" -scheme "$scheme" -configuration Release -derivedDataPath build/$app_name
+            fi
+          fi
+        done
+      continue-on-error: true
+    
+    - name: Upload TestFlight build (on main branch)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        echo "Would upload to TestFlight here"
+        # Need to set up FASTLANI_* secrets
+      continue-on-error: true
