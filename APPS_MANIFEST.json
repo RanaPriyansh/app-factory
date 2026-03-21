@@ -1,0 +1,244 @@
+{
+  "generated_at": "2025-03-20T20:15:00Z",
+  "factory_version": "1.0",
+  "apps": [
+    {
+      "app_key": "ai-resume-builder",
+      "display_name": "AI Resume Builder",
+      "bundle_id": "com.thielon.resumebuilder",
+      "app_name": "ResumeBuilder",
+      "target_audience": "Gen Z job seekers",
+      "monthly_price_usd": 9,
+      "prompt_key": "resume_builder",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/ai-resume-builder",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/ai-resume-builder/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/ai-resume-builder/iOS/ResumeBuilder",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/ai-resume-builder/iOS/ResumeBuilder.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/ai-resume-builder/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "contract-generator",
+      "display_name": "AI Contract Generator",
+      "bundle_id": "com.thielon.contractgenerator",
+      "app_name": "ContractGenerator",
+      "target_audience": "Freelancers",
+      "monthly_price_usd": 12,
+      "prompt_key": "contract_generator",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/contract-generator",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/contract-generator/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/contract-generator/iOS/ContractGenerator",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/contract-generator/iOS/ContractGenerator.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/contract-generator/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "finance-coach",
+      "display_name": "AI Finance Coach",
+      "bundle_id": "com.thielon.financecoach",
+      "app_name": "FinanceCoach",
+      "target_audience": "Baby Boomers",
+      "monthly_price_usd": 12,
+      "prompt_key": "finance_coach",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/finance-coach",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/finance-coach/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/finance-coach/iOS/FinanceCoach",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/finance-coach/iOS/FinanceCoach.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/finance-coach/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "landlord-utility-optimizer",
+      "display_name": "Landlord Utility Optimizer",
+      "bundle_id": "com.thielon.landlordutility",
+      "app_name": "LandlordUtility",
+      "target_audience": "Property owners",
+      "monthly_price_usd": 29,
+      "prompt_key": "landlord_utility",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/landlord-utility-optimizer",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/landlord-utility-optimizer/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/landlord-utility-optimizer/iOS/LandlordUtility",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/landlord-utility-optimizer/iOS/LandlordUtility.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/landlord-utility-optimizer/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "teacher-assistant",
+      "display_name": "Teacher Assistant",
+      "bundle_id": "com.thielon.teacherassistant",
+      "app_name": "TeacherAssistant",
+      "target_audience": "K-12 teachers",
+      "monthly_price_usd": 15,
+      "prompt_key": "teacher_assistant",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/teacher-assistant",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/teacher-assistant/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/teacher-assistant/iOS/TeacherAssistant",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/teacher-assistant/iOS/TeacherAssistant.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/teacher-assistant/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "tax-optimizer",
+      "display_name": "AI Tax Optimizer",
+      "bundle_id": "com.thielon.taxoptimizer",
+      "app_name": "TaxOptimizer",
+      "target_audience": "Freelancers & small businesses",
+      "monthly_price_usd": 15,
+      "prompt_key": "tax_optimizer",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/tax-optimizer",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/tax-optimizer/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/tax-optimizer/iOS/TaxOptimizer",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/tax-optimizer/iOS/TaxOptimizer.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/tax-optimizer/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "bookkeeping-automator",
+      "display_name": "AI Bookkeeping Automator",
+      "bundle_id": "com.thielon.bookkeepingautomator",
+      "app_name": "BookkeepingAutomator",
+      "target_audience": "Small business owners",
+      "monthly_price_usd": 19,
+      "prompt_key": "bookkeeping_automator",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/bookkeeping-automator",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/bookkeeping-automator/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/bookkeeping-automator/iOS/BookkeepingAutomator",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/bookkeeping-automator/iOS/BookkeepingAutomator.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/bookkeeping-automator/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "insurance-claims-autofill",
+      "display_name": "AI Insurance Claims Autofill",
+      "bundle_id": "com.thielon.insuranceclaimsautofill",
+      "app_name": "InsuranceClaimsAutofill",
+      "target_audience": "Insurance policyholders",
+      "monthly_price_usd": 12,
+      "prompt_key": "insurance_claims_autofill",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/insurance-claims-autofill",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/insurance-claims-autofill/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/insurance-claims-autofill/iOS/InsuranceClaimsAutofill",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/insurance-claims-autofill/iOS/InsuranceClaimsAutofill.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/insurance-claims-autofill/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "doctor-note-summarizer",
+      "display_name": "AI Doctor Note Summarizer",
+      "bundle_id": "com.thielon.doctornotesummarizer",
+      "app_name": "DoctorNoteSummarizer",
+      "target_audience": "Patients & caregivers",
+      "monthly_price_usd": 9,
+      "prompt_key": "doctor_note_summarizer",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/doctor-note-summarizer",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/doctor-note-summarizer/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/doctor-note-summarizer/iOS/DoctorNoteSummarizer",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/doctor-note-summarizer/iOS/DoctorNoteSummarizer.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/doctor-note-summarizer/backend && vercel --prod"
+      }
+    },
+    {
+      "app_key": "micro-course-creator",
+      "display_name": "AI Micro Course Creator",
+      "bundle_id": "com.thielon.microcoursecreator",
+      "app_name": "MicroCourseCreator",
+      "target_audience": "Educators & content creators",
+      "monthly_price_usd": 29,
+      "prompt_key": "micro_course_creator",
+      "paths": {
+        "app_dir": "/root/git-repos/thielon-app-factory/apps/micro-course-creator",
+        "backend_dir": "/root/git-repos/thielon-app-factory/apps/micro-course-creator/backend",
+        "ios_dir": "/root/git-repos/thielon-app-factory/apps/micro-course-creator/iOS/MicroCourseCreator",
+        "xcodeproj": "/root/git-repos/thielon-app-factory/apps/micro-course-creator/iOS/MicroCourseCreator.xcodeproj"
+      },
+      "git_repo_initialized": true,
+      "deployment": {
+        "backend_vercel_json": true,
+        "requirements_txt": true,
+        "env_example": true,
+        "ready_for_deployment": true,
+        "deployment_command": "cd /root/git-repos/thielon-app-factory/apps/micro-course-creator/backend && vercel --prod"
+      }
+    }
+  ],
+  "deployment_summary": {
+    "total_apps": 10,
+    "git_repos_initialized": 10,
+    "vercel_configs_created": 10,
+    "ready_for_vercel_deployment": true,
+    "deployment_method": "Manual - Run vercel CLI in each backend directory",
+    "note": "Vercel CLI not available in this environment. To deploy: 1) cd into each backend directory 2) run 'vercel --prod' 3) Configure environment variables in Vercel dashboard"
+  }
+}

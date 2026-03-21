@@ -1,57 +1,32 @@
-# AI Contract Generator for Freelancers
+# AI Contract Generator
 
-A functional MVP for generating AI-powered freelance contracts.
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/thielon-apps/contract-generator)
+[![License](https://img.shields.io/github/license/thielon-apps/contract-generator)](https://github.com/thielon-apps/contract-generator/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/thielon-apps/contract-generator)](https://github.com/thielon-apps/contract-generator/commits/main)
+
+AI-powered contract generator for iOS.
 
 ## Features
-
-- **AI-Powered Generation**: Uses Claude API to create tailored contracts
-- **Comprehensive Clauses**: Covers scope, payment, IP, confidentiality, termination
-- **PDF Export**: Download professional PDF contracts
-- **Freemium Model**: 1 free generation, then $12/month subscription
-- **Stripe Integration**: Secure payment processing
+- AI generation using Claude API
+- Stripe subscription payments ($12/month)
+- Freemium model: 1 free generation
+- PDF export (coming soon)
 
 ## Setup
-
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Create `.env` file from `.env.example` and fill in your API keys:
-   - `ANTHROPIC_API_KEY`: Your Claude API key
-   - `STRIPE_SECRET_KEY` and `STRIPE_PUBLISHABLE_KEY`: Stripe API keys
-   - `STRIPE_PRICE_ID`: Stripe Price ID for $12/month subscription
-   - `SECRET_KEY`: Flask secret key
-
-3. Run the app:
-   ```bash
-   python app.py
-   ```
-
-4. Open http://localhost:5001 in your browser.
+1. Copy `.env.example` to `.env` and fill in your API keys
+2. Run: `pip install -r requirements.txt`
+3. Run: `uvicorn main:app --reload`
+4. Open http://localhost:8000/docs for API docs
 
 ## Deployment
+Deploy to Vercel, Railway, or Heroku. Set all environment variables.
 
-### Using Gunicorn (production):
-```bash
-gunicorn -w 4 -b 0.0.0.0:8001 app:app
-```
+## App Store
+iOS app template: iOS/ContractGenerator/
+Configure bundle ID: com.thielon.contractgenerator
+Set RevenueCat product: AI Contract Generator
 
-### Environment Variables (production):
-Set all environment variables in your hosting platform.
-
-## GTM Playbook
-
-1. **Community Seeding** – Post in r/freelance, r/forhire, Indie Hackers
-2. **Integration Partnerships** – Upwork/Fiverr marketplace listings
-3. **Content Marketing** – "Freelancer Contract Checklist" lead magnet
-4. **Referral Program** – "Invite a freelancer, both get 1 month free"
-5. **Product Hunt Launch** – Target "Tools for Freelancers" category
-
-## Next Steps
-
-- [ ] Add user authentication
-- [ ] Store contracts in database
-- [ ] Add e-signature integration (Dropbox Sign API)
-- [ ] Implement contract templates library
-- [ ] Add milestone payment tracking
+## Revenue
+- Freemium: 1 free generation
+- Pro: $12/month
+- Target: 100+ subscribers in first month = $1200/mo

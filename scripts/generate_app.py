@@ -38,7 +38,7 @@ APPS = {
         'app_name': 'FinanceCoach',
         'target': 'Baby Boomers'
     },
-    'landlord-utility': {
+    'landlord-utility-optimizer': {
         'price': 29,
         'prompt_key': 'landlord_utility',
         'display': 'Landlord Utility Optimizer',
@@ -53,6 +53,46 @@ APPS = {
         'bundle_id': 'com.thielon.teacherassistant',
         'app_name': 'TeacherAssistant',
         'target': 'K-12 teachers'
+    },
+    'tax-optimizer': {
+        'price': 15,
+        'prompt_key': 'tax_optimizer',
+        'display': 'AI Tax Optimizer',
+        'bundle_id': 'com.thielon.taxoptimizer',
+        'app_name': 'TaxOptimizer',
+        'target': 'Freelancers & small businesses'
+    },
+    'bookkeeping-automator': {
+        'price': 19,
+        'prompt_key': 'bookkeeping_automator',
+        'display': 'AI Bookkeeping Automator',
+        'bundle_id': 'com.thielon.bookkeepingautomator',
+        'app_name': 'BookkeepingAutomator',
+        'target': 'Small business owners'
+    },
+    'insurance-claims-autofill': {
+        'price': 12,
+        'prompt_key': 'insurance_claims_autofill',
+        'display': 'AI Insurance Claims Autofill',
+        'bundle_id': 'com.thielon.insuranceclaimsautofill',
+        'app_name': 'InsuranceClaimsAutofill',
+        'target': 'Insurance policyholders'
+    },
+    'doctor-note-summarizer': {
+        'price': 9,
+        'prompt_key': 'doctor_note_summarizer',
+        'display': 'AI Doctor Note Summarizer',
+        'bundle_id': 'com.thielon.doctornotesummarizer',
+        'app_name': 'DoctorNoteSummarizer',
+        'target': 'Patients & caregivers'
+    },
+    'micro-course-creator': {
+        'price': 29,
+        'prompt_key': 'micro_course_creator',
+        'display': 'AI Micro Course Creator',
+        'bundle_id': 'com.thielon.microcoursecreator',
+        'app_name': 'MicroCourseCreator',
+        'target': 'Educators & content creators'
     }
 }
 
@@ -167,6 +207,15 @@ Set RevenueCat product: {config['display']}
     ios_dir = app_dir / 'iOS'
     shutil.copytree(TEMPLATE_IOS, ios_dir)
     
+    # Copy Xcode project template
+    xcodeproj_src = TEMPLATE_IOS / 'ThielonApp.xcodeproj'
+    xcodeproj_dst = ios_dir / f'{config["app_name"]}.xcodeproj'
+    if xcodeproj_src.exists():
+        shutil.copytree(xcodeproj_src, xcodeproj_dst)
+        print(f"  ✓ Xcode project created: {xcodeproj_dst}")
+    else:
+        print(f"  ⚠ Warning: Xcode project template not found at {xcodeproj_src}")
+    
     # Rename ThielonApp to actual app name
     src_app = ios_dir / 'ThielonApp'
     dst_app = ios_dir / config['app_name']
@@ -179,6 +228,26 @@ Set RevenueCat product: {config['display']}
     info_plist = info_plist.replace('AI Resume Builder', config['display'])
     info_plist = info_plist.replace('ThielonAI', config['app_name'])
     (dst_app / 'Info.plist').write_text(info_plist)
+    
+    # Update Xcode project with bundle ID and app name
+    if xcodeproj_dst.exists():
+        pbxproj_path = xcodeproj_dst / 'project.pbxproj'
+        if pbxproj_path.exists():
+            pbxproj = pbxproj_path.read_text()
+            # Replace placeholders
+            pbxproj = pbxproj.replace('com.thielon.template', config['bundle_id'])
+            pbxproj = pbxproj.replace('PRODUCT_NAME = ThielonApp;', f'PRODUCT_NAME = {config["app_name"]};')
+            pbxproj = pbxproj.replace('name = ThielonApp;', f'name = {config["app_name"]};')
+            pbxproj = pbxproj.replace('path = ThielonApp;', f'path = {config["app_name"]};')
+            pbxproj = pbxproj.replace('INFOPLIST_FILE = ThielonApp/Info.plist;', f'INFOPLIST_FILE = {config["app_name"]}/Info.plist;')
+            pbxproj_path.write_text(pbxproj)
+            print(f"  ✓ Updated Xcode project settings")
+    
+    # Clean up template .xcodeproj if it exists (from copytree)
+    template_xcodeproj = ios_dir / 'ThielonApp.xcodeproj'
+    if template_xcodeproj.exists() and template_xcodeproj != xcodeproj_dst:
+        shutil.rmtree(template_xcodeproj)
+        print(f"  ✓ Cleaned up template Xcode project")
     
     # Update ContentView
     content_view = (dst_app / 'Views' / 'ContentView.swift').read_text()

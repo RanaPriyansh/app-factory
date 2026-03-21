@@ -1,0 +1,76 @@
+QUICK REFERENCE - All Generated Apps
+====================================
+
+1. AI Resume Builder
+   Key: ai-resume-builder
+   Bundle: com.thielon.resumebuilder
+   Price: $9/mo
+   Backend: apps/ai-resume-builder/backend
+
+2. AI Contract Generator
+   Key: contract-generator
+   Bundle: com.thielon.contractgenerator
+   Price: $12/mo
+   Backend: apps/contract-generator/backend
+
+3. AI Finance Coach
+   Key: finance-coach
+   Bundle: com.thielon.financecoach
+   Price: $12/mo
+   Backend: apps/finance-coach/backend
+
+4. Landlord Utility Optimizer
+   Key: landlord-utility-optimizer
+   Bundle: com.thielon.landlordutility
+   Price: $29/mo
+   Backend: apps/landlord-utility-optimizer/backend
+
+5. Teacher Assistant
+   Key: teacher-assistant
+   Bundle: com.thielon.teacherassistant
+   Price: $15/mo
+   Backend: apps/teacher-assistant/backend
+
+6. AI Tax Optimizer
+   Key: tax-optimizer
+   Bundle: com.thielon.taxoptimizer
+   Price: $15/mo
+   Backend: apps/tax-optimizer/backend
+
+7. AI Bookkeeping Automator
+   Key: bookkeeping-automator
+   Bundle: com.thielon.bookkeepingautomator
+   Price: $19/mo
+   Backend: apps/bookkeeping-automator/backend
+
+8. AI Insurance Claims Autofill
+   Key: insurance-claims-autofill
+   Bundle: com.thielon.insuranceclaimsautofill
+   Price: $12/mo
+   Backend: apps/insurance-claims-autofill/backend
+
+9. AI Doctor Note Summarizer
+   Key: doctor-note-summarizer
+   Bundle: com.thielon.doctornotesummarizer
+   Price: $9/mo
+   Backend: apps/doctor-note-summarizer/backend
+
+10. AI Micro Course Creator
+    Key: micro-course-creator
+    Bundle: com.thielon.microcoursecreator
+    Price: $29/mo
+    Backend: apps/micro-course-creator/backend
+
+DEPLOYMENT STATUS
+=================
+All backends: vercel.json ✅  requirements.txt ✅  .env.example ✅
+All apps: Git initialized ✅  Xcode project ✅  Configs updated ✅
+
+To deploy all: ./deploy_all_vercel.sh
+To deploy individually: cd apps/<app>/backend && vercel --prod
+
+Important files:
+- APPS_MANIFEST.json - Complete inventory
+- DEPLOYMENT_STATUS_REPORT.md - Detailed status
+- README_DEPLOYMENT.md - Deployment guide
+- deploy_all_vercel.sh - Bulk deployment script

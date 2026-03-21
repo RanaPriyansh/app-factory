@@ -1,56 +1,32 @@
-# AI Resume Builder for Gen Z
+# AI Resume Builder
 
-A functional MVP for generating AI-powered resumes tailored to specific job descriptions.
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/thielon-apps/ai-resume-builder)
+[![License](https://img.shields.io/github/license/thielon-apps/ai-resume-builder)](https://github.com/thielon-apps/ai-resume-builder/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/thielon-apps/ai-resume-builder)](https://github.com/thielon-apps/ai-resume-builder/commits/main)
+
+AI-powered ai resume builder for iOS.
 
 ## Features
-
-- **AI-Powered Generation**: Uses Claude API to create tailored resumes
-- **ATS Optimization**: Includes keywords from job descriptions
-- **PDF Export**: Download professional PDF resumes
-- **Freemium Model**: 1 free generation, then $9/month subscription
-- **Stripe Integration**: Secure payment processing
+- AI generation using Claude API
+- Stripe subscription payments ($9/month)
+- Freemium model: 1 free generation
+- PDF export (coming soon)
 
 ## Setup
-
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Create `.env` file from `.env.example` and fill in your API keys:
-   - `ANTHROPIC_API_KEY`: Your Claude API key
-   - `STRIPE_SECRET_KEY` and `STRIPE_PUBLISHABLE_KEY`: Stripe API keys
-   - `STRIPE_PRICE_ID`: Stripe Price ID for $9/month subscription
-   - `SECRET_KEY`: Flask secret key
-
-3. Run the app:
-   ```bash
-   python app.py
-   ```
-
-4. Open http://localhost:5000 in your browser.
+1. Copy `.env.example` to `.env` and fill in your API keys
+2. Run: `pip install -r requirements.txt`
+3. Run: `uvicorn main:app --reload`
+4. Open http://localhost:8000/docs for API docs
 
 ## Deployment
+Deploy to Vercel, Railway, or Heroku. Set all environment variables.
 
-### Using Gunicorn (production):
-```bash
-gunicorn -w 4 -b 0.0.0.0:8000 app:app
-```
+## App Store
+iOS app template: iOS/ResumeBuilder/
+Configure bundle ID: com.thielon.resumebuilder
+Set RevenueCat product: AI Resume Builder
 
-### Environment Variables (production):
-Set all environment variables in your hosting platform (Heroku, Railway, etc.)
-
-## GTM Playbook
-
-1. **Launch on Product Hunt** - Target "AI tools for students" segment
-2. **TikTok Campaign** - "30-second resume hack" videos
-3. **Campus Ambassadors** - 1 ambassador per 5k students
-4. **Referral Program** - "Invite a friend, both get 1 extra free resume"
-
-## Next Steps
-
-- [ ] Add user authentication
-- [ ] Store generations in database
-- [ ] Add more resume templates
-- [ ] Implement usage tracking per user
-- [ ] Add cover letter generation
+## Revenue
+- Freemium: 1 free generation
+- Pro: $9/month
+- Target: 100+ subscribers in first month = $900/mo
