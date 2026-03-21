@@ -5,7 +5,7 @@
     <key>CFBundleDisplayName</key>
     <string>AI Finance Coach</string>
     <key>CFBundleIdentifier</key>
-    <string>com.thielon.financecoach</string>
+    <string>com.appfactory.financecoach</string>
     <key>CFBundleName</key>
     <string>FinanceCoach</string>
     <key>CFBundlePackageType</key>

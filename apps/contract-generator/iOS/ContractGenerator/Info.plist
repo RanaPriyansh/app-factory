@@ -5,7 +5,7 @@
     <key>CFBundleDisplayName</key>
     <string>AI Contract Generator</string>
     <key>CFBundleIdentifier</key>
-    <string>com.thielon.contractgenerator</string>
+    <string>com.appfactory.contractgenerator</string>
     <key>CFBundleName</key>
     <string>ContractGenerator</string>
     <key>CFBundlePackageType</key>

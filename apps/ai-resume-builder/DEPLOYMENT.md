@@ -8,7 +8,7 @@
 
 ## iOS App
 1. Open Xcode project in iOS/ResumeBuilder/
-2. Set bundle identifier: com.thielon.resumebuilder
+2. Set bundle identifier: com.appfactory.resumebuilder
 3. Add RevenueCat API key
 4. Configure App Store Connect entry
 5. Build and submit for review

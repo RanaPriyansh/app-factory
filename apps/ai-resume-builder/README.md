@@ -1,8 +1,8 @@
 # AI Resume Builder
 
-[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/thielon-apps/ai-resume-builder)
-[![License](https://img.shields.io/github/license/thielon-apps/ai-resume-builder)](https://github.com/thielon-apps/ai-resume-builder/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/thielon-apps/ai-resume-builder)](https://github.com/thielon-apps/ai-resume-builder/commits/main)
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/RanaPriyansh/ai-resume-builder)
+[![License](https://img.shields.io/github/license/RanaPriyansh/ai-resume-builder)](https://github.com/RanaPriyansh/ai-resume-builder/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/RanaPriyansh/ai-resume-builder)](https://github.com/RanaPriyansh/ai-resume-builder/commits/main)
 
 AI-powered ai resume builder for iOS.
 
@@ -23,7 +23,7 @@ Deploy to Vercel, Railway, or Heroku. Set all environment variables.
 
 ## App Store
 iOS app template: iOS/ResumeBuilder/
-Configure bundle ID: com.thielon.resumebuilder
+Configure bundle ID: com.appfactory.resumebuilder
 Set RevenueCat product: AI Resume Builder
 
 ## Revenue

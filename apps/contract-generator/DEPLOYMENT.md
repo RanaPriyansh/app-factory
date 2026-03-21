@@ -8,7 +8,7 @@
 
 ## iOS App
 1. Open Xcode project in iOS/ContractGenerator/
-2. Set bundle identifier: com.thielon.contractgenerator
+2. Set bundle identifier: com.appfactory.contractgenerator
 3. Add RevenueCat API key
 4. Configure App Store Connect entry
 5. Build and submit for review

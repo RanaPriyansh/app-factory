@@ -5,7 +5,7 @@
     <key>CFBundleDisplayName</key>
     <string>Teacher Assistant</string>
     <key>CFBundleIdentifier</key>
-    <string>com.thielon.teacherassistant</string>
+    <string>com.appfactory.teacherassistant</string>
     <key>CFBundleName</key>
     <string>TeacherAssistant</string>
     <key>CFBundlePackageType</key>

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Thielon App Factory - Generate AI SaaS iOS apps from templates
+ App Factory - Generate AI SaaS iOS apps from templates
 Usage: python generate_app.py <app_name> <price> <prompt_key>
 """
 
@@ -18,7 +18,7 @@ APPS = {
         'price': 9,
         'prompt_key': 'resume_builder',
         'display': 'AI Resume Builder',
-        'bundle_id': 'com.thielon.resumebuilder',
+        'bundle_id': 'com.appfactory.resumebuilder',
         'app_name': 'ResumeBuilder',
         'target': 'Gen Z job seekers'
     },
@@ -26,7 +26,7 @@ APPS = {
         'price': 12,
         'prompt_key': 'contract_generator',
         'display': 'AI Contract Generator',
-        'bundle_id': 'com.thielon.contractgenerator',
+        'bundle_id': 'com.appfactory.contractgenerator',
         'app_name': 'ContractGenerator',
         'target': 'Freelancers'
     },
@@ -34,7 +34,7 @@ APPS = {
         'price': 12,
         'prompt_key': 'finance_coach',
         'display': 'AI Finance Coach',
-        'bundle_id': 'com.thielon.financecoach',
+        'bundle_id': 'com.appfactory.financecoach',
         'app_name': 'FinanceCoach',
         'target': 'Baby Boomers'
     },
@@ -42,7 +42,7 @@ APPS = {
         'price': 29,
         'prompt_key': 'landlord_utility',
         'display': 'Landlord Utility Optimizer',
-        'bundle_id': 'com.thielon.landlordutility',
+        'bundle_id': 'com.appfactory.landlordutility',
         'app_name': 'LandlordUtility',
         'target': 'Property owners'
     },
@@ -50,7 +50,7 @@ APPS = {
         'price': 15,
         'prompt_key': 'teacher_assistant',
         'display': 'Teacher Assistant',
-        'bundle_id': 'com.thielon.teacherassistant',
+        'bundle_id': 'com.appfactory.teacherassistant',
         'app_name': 'TeacherAssistant',
         'target': 'K-12 teachers'
     },
@@ -58,7 +58,7 @@ APPS = {
         'price': 15,
         'prompt_key': 'tax_optimizer',
         'display': 'AI Tax Optimizer',
-        'bundle_id': 'com.thielon.taxoptimizer',
+        'bundle_id': 'com.appfactory.taxoptimizer',
         'app_name': 'TaxOptimizer',
         'target': 'Freelancers & small businesses'
     },
@@ -66,7 +66,7 @@ APPS = {
         'price': 19,
         'prompt_key': 'bookkeeping_automator',
         'display': 'AI Bookkeeping Automator',
-        'bundle_id': 'com.thielon.bookkeepingautomator',
+        'bundle_id': 'com.appfactory.bookkeepingautomator',
         'app_name': 'BookkeepingAutomator',
         'target': 'Small business owners'
     },
@@ -74,7 +74,7 @@ APPS = {
         'price': 12,
         'prompt_key': 'insurance_claims_autofill',
         'display': 'AI Insurance Claims Autofill',
-        'bundle_id': 'com.thielon.insuranceclaimsautofill',
+        'bundle_id': 'com.appfactory.insuranceclaimsautofill',
         'app_name': 'InsuranceClaimsAutofill',
         'target': 'Insurance policyholders'
     },
@@ -82,7 +82,7 @@ APPS = {
         'price': 9,
         'prompt_key': 'doctor_note_summarizer',
         'display': 'AI Doctor Note Summarizer',
-        'bundle_id': 'com.thielon.doctornotesummarizer',
+        'bundle_id': 'com.appfactory.doctornotesummarizer',
         'app_name': 'DoctorNoteSummarizer',
         'target': 'Patients & caregivers'
     },
@@ -90,7 +90,7 @@ APPS = {
         'price': 29,
         'prompt_key': 'micro_course_creator',
         'display': 'AI Micro Course Creator',
-        'bundle_id': 'com.thielon.microcoursecreator',
+        'bundle_id': 'com.appfactory.microcoursecreator',
         'app_name': 'MicroCourseCreator',
         'target': 'Educators & content creators'
     }
@@ -208,7 +208,7 @@ Set RevenueCat product: {config['display']}
     shutil.copytree(TEMPLATE_IOS, ios_dir)
     
     # Copy Xcode project template
-    xcodeproj_src = TEMPLATE_IOS / 'ThielonApp.xcodeproj'
+    xcodeproj_src = TEMPLATE_IOS / 'App.xcodeproj'
     xcodeproj_dst = ios_dir / f'{config["app_name"]}.xcodeproj'
     if xcodeproj_src.exists():
         shutil.copytree(xcodeproj_src, xcodeproj_dst)
@@ -216,17 +216,17 @@ Set RevenueCat product: {config['display']}
     else:
         print(f"  ⚠ Warning: Xcode project template not found at {xcodeproj_src}")
     
-    # Rename ThielonApp to actual app name
-    src_app = ios_dir / 'ThielonApp'
+    # Rename App to actual app name
+    src_app = ios_dir / 'App'
     dst_app = ios_dir / config['app_name']
     if src_app.exists():
         src_app.rename(dst_app)
     
     # Update bundle ID and app name in Info.plist
     info_plist = (dst_app / 'Info.plist').read_text()
-    info_plist = info_plist.replace('com.thielon.resumebuilder', config['bundle_id'])
+    info_plist = info_plist.replace('com.appfactory.resumebuilder', config['bundle_id'])
     info_plist = info_plist.replace('AI Resume Builder', config['display'])
-    info_plist = info_plist.replace('ThielonAI', config['app_name'])
+    info_plist = info_plist.replace('AI', config['app_name'])
     (dst_app / 'Info.plist').write_text(info_plist)
     
     # Update Xcode project with bundle ID and app name
@@ -235,16 +235,16 @@ Set RevenueCat product: {config['display']}
         if pbxproj_path.exists():
             pbxproj = pbxproj_path.read_text()
             # Replace placeholders
-            pbxproj = pbxproj.replace('com.thielon.template', config['bundle_id'])
-            pbxproj = pbxproj.replace('PRODUCT_NAME = ThielonApp;', f'PRODUCT_NAME = {config["app_name"]};')
-            pbxproj = pbxproj.replace('name = ThielonApp;', f'name = {config["app_name"]};')
-            pbxproj = pbxproj.replace('path = ThielonApp;', f'path = {config["app_name"]};')
-            pbxproj = pbxproj.replace('INFOPLIST_FILE = ThielonApp/Info.plist;', f'INFOPLIST_FILE = {config["app_name"]}/Info.plist;')
+            pbxproj = pbxproj.replace('com.appfactory.template', config['bundle_id'])
+            pbxproj = pbxproj.replace('PRODUCT_NAME = App;', f'PRODUCT_NAME = {config["app_name"]};')
+            pbxproj = pbxproj.replace('name = App;', f'name = {config["app_name"]};')
+            pbxproj = pbxproj.replace('path = App;', f'path = {config["app_name"]};')
+            pbxproj = pbxproj.replace('INFOPLIST_FILE = App/Info.plist;', f'INFOPLIST_FILE = {config["app_name"]}/Info.plist;')
             pbxproj_path.write_text(pbxproj)
             print(f"  ✓ Updated Xcode project settings")
     
     # Clean up template .xcodeproj if it exists (from copytree)
-    template_xcodeproj = ios_dir / 'ThielonApp.xcodeproj'
+    template_xcodeproj = ios_dir / 'App.xcodeproj'
     if template_xcodeproj.exists() and template_xcodeproj != xcodeproj_dst:
         shutil.rmtree(template_xcodeproj)
         print(f"  ✓ Cleaned up template Xcode project")
@@ -312,7 +312,7 @@ $$ LANGUAGE plpgsql;
 
 def main():
     if len(sys.argv) < 2:
-        print("Thielon App Factory")
+        print(" App Factory")
         print("===================\n")
         print("Available apps:")
         for key, cfg in APPS.items():

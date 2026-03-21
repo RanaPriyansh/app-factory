@@ -5,9 +5,9 @@
     <key>CFBundleDisplayName</key>
     <string>AI Resume Builder</string>
     <key>CFBundleIdentifier</key>
-    <string>com.thielon.resumebuilder</string>
+    <string>com.appfactory.resumebuilder</string>
     <key>CFBundleName</key>
-    <string>ThielonAI</string>
+    <string>AI</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>

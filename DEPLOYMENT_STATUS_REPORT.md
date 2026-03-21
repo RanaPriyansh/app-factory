@@ -1,4 +1,4 @@
-# Thielon App Factory - Deployment Status Report
+#  App Factory - Deployment Status Report
 
 **Date:** March 20, 2026
 **Task:** Generate 10 iOS apps and deploy backends to Vercel
@@ -20,23 +20,23 @@
 
 | # | App Key | Display Name | Bundle ID | Price/Mo | Target Audience |
 |---|---------|--------------|-----------|----------|-----------------|
-| 1 | ai-resume-builder | AI Resume Builder | com.thielon.resumebuilder | $9 | Gen Z job seekers |
-| 2 | contract-generator | AI Contract Generator | com.thielon.contractgenerator | $12 | Freelancers |
-| 3 | finance-coach | AI Finance Coach | com.thielon.financecoach | $12 | Baby Boomers |
-| 4 | landlord-utility-optimizer | Landlord Utility Optimizer | com.thielon.landlordutility | $29 | Property owners |
-| 5 | teacher-assistant | Teacher Assistant | com.thielon.teacherassistant | $15 | K-12 teachers |
-| 6 | tax-optimizer | AI Tax Optimizer | com.thielon.taxoptimizer | $15 | Freelancers & small businesses |
-| 7 | bookkeeping-automator | AI Bookkeeping Automator | com.thielon.bookkeepingautomator | $19 | Small business owners |
-| 8 | insurance-claims-autofill | AI Insurance Claims Autofill | com.thielon.insuranceclaimsautofill | $12 | Insurance policyholders |
-| 9 | doctor-note-summarizer | AI Doctor Note Summarizer | com.thielon.doctornotesummarizer | $9 | Patients & caregivers |
-| 10 | micro-course-creator | AI Micro Course Creator | com.thielon.microcoursecreator | $29 | Educators & content creators |
+| 1 | ai-resume-builder | AI Resume Builder | com.appfactory.resumebuilder | $9 | Gen Z job seekers |
+| 2 | contract-generator | AI Contract Generator | com.appfactory.contractgenerator | $12 | Freelancers |
+| 3 | finance-coach | AI Finance Coach | com.appfactory.financecoach | $12 | Baby Boomers |
+| 4 | landlord-utility-optimizer | Landlord Utility Optimizer | com.appfactory.landlordutility | $29 | Property owners |
+| 5 | teacher-assistant | Teacher Assistant | com.appfactory.teacherassistant | $15 | K-12 teachers |
+| 6 | tax-optimizer | AI Tax Optimizer | com.appfactory.taxoptimizer | $15 | Freelancers & small businesses |
+| 7 | bookkeeping-automator | AI Bookkeeping Automator | com.appfactory.bookkeepingautomator | $19 | Small business owners |
+| 8 | insurance-claims-autofill | AI Insurance Claims Autofill | com.appfactory.insuranceclaimsautofill | $12 | Insurance policyholders |
+| 9 | doctor-note-summarizer | AI Doctor Note Summarizer | com.appfactory.doctornotesummarizer | $9 | Patients & caregivers |
+| 10 | micro-course-creator | AI Micro Course Creator | com.appfactory.microcoursecreator | $29 | Educators & content creators |
 
 ---
 
 ## Project Structure
 
 ```
-thielon-app-factory/
+app-factory/
 ├── apps/
 │   ├── ai-resume-builder/
 │   │   ├── iOS/ResumeBuilder.xcodeproj

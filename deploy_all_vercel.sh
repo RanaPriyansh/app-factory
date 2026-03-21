@@ -18,7 +18,7 @@ APPS=(
   "micro-course-creator"
 )
 
-BASE_DIR="/root/git-repos/thielon-app-factory/apps"
+BASE_DIR="/root/git-repos/app-factory/apps"
 
 echo "🚀 Deploying all backends to Vercel..."
 echo "========================================"

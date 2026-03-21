@@ -1,4 +1,4 @@
-# 🚀 Thielon App Factory - Deployment Summary
+# 🚀  App Factory - Deployment Summary
 
 **Status:** ✅ All 10 iOS apps generated and backend deployment packages prepared
 
@@ -10,16 +10,16 @@
 
 | App | Bundle ID | Backend Dir | Git Repo | Ver.v |
 |------|-----------|-------------|----------|-------|
-| AI Resume Builder | com.thielon.resumebuilder | apps/ai-resume-builder/backend | ✅ | ✅ |
-| AI Contract Generator | com.thielon.contractgenerator | apps/contract-generator/backend | ✅ | ✅ |
-| AI Finance Coach | com.thielon.financecoach | apps/finance-coach/backend | ✅ | ✅ |
-| Landlord Utility Optimizer | com.thielon.landlordutility | apps/landlord-utility-optimizer/backend | ✅ | ✅ |
-| Teacher Assistant | com.thielon.teacherassistant | apps/teacher-assistant/backend | ✅ | ✅ |
-| AI Tax Optimizer | com.thielon.taxoptimizer | apps/tax-optimizer/backend | ✅ | ✅ |
-| AI Bookkeeping Automator | com.thielon.bookkeepingautomator | apps/bookkeeping-automator/backend | ✅ | ✅ |
-| AI Insurance Claims Autofill | com.thielon.insuranceclaimsautofill | apps/insurance-claims-autofill/backend | ✅ | ✅ |
-| AI Doctor Note Summarizer | com.thielon.doctornotesummarizer | apps/doctor-note-summarizer/backend | ✅ | ✅ |
-| AI Micro Course Creator | com.thielon.microcoursecreator | apps/micro-course-creator/backend | ✅ | ✅ |
+| AI Resume Builder | com.appfactory.resumebuilder | apps/ai-resume-builder/backend | ✅ | ✅ |
+| AI Contract Generator | com.appfactory.contractgenerator | apps/contract-generator/backend | ✅ | ✅ |
+| AI Finance Coach | com.appfactory.financecoach | apps/finance-coach/backend | ✅ | ✅ |
+| Landlord Utility Optimizer | com.appfactory.landlordutility | apps/landlord-utility-optimizer/backend | ✅ | ✅ |
+| Teacher Assistant | com.appfactory.teacherassistant | apps/teacher-assistant/backend | ✅ | ✅ |
+| AI Tax Optimizer | com.appfactory.taxoptimizer | apps/tax-optimizer/backend | ✅ | ✅ |
+| AI Bookkeeping Automator | com.appfactory.bookkeepingautomator | apps/bookkeeping-automator/backend | ✅ | ✅ |
+| AI Insurance Claims Autofill | com.appfactory.insuranceclaimsautofill | apps/insurance-claims-autofill/backend | ✅ | ✅ |
+| AI Doctor Note Summarizer | com.appfactory.doctornotesummarizer | apps/doctor-note-summarizer/backend | ✅ | ✅ |
+| AI Micro Course Creator | com.appfactory.microcoursecreator | apps/micro-course-creator/backend | ✅ | ✅ |
 
 ---
 
@@ -31,7 +31,7 @@ Each app directory contains:
 ```
 iOS/<AppName>.xcodeproj          # Xcode project (ready to build)
 iOS/<AppName>/                   # Source code
-  - ThielonAIApp.swift
+  - AIApp.swift
   - Views/
   - Services/
   - Info.plist (bundle ID configured)
@@ -69,7 +69,7 @@ vercel --prod
 ### Option 2: Automated Script
 
 ```bash
-cd ~/git-repos/thielon-app-factory
+cd ~/git-repos/app-factory
 ./deploy_all_vercel.sh
 ```
 

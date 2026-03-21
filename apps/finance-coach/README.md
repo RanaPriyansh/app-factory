@@ -1,8 +1,8 @@
 # AI Finance Coach
 
-[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/thielon-apps/finance-coach)
-[![License](https://img.shields.io/github/license/thielon-apps/finance-coach)](https://github.com/thielon-apps/finance-coach/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/thielon-apps/finance-coach)](https://github.com/thielon-apps/finance-coach/commits/main)
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/RanaPriyansh/finance-coach)
+[![License](https://img.shields.io/github/license/RanaPriyansh/finance-coach)](https://github.com/RanaPriyansh/finance-coach/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/RanaPriyansh/finance-coach)](https://github.com/RanaPriyansh/finance-coach/commits/main)
 
 AI-powered finance coach for iOS.
 
@@ -23,7 +23,7 @@ Deploy to Vercel, Railway, or Heroku. Set all environment variables.
 
 ## App Store
 iOS app template: iOS/FinanceCoach/
-Configure bundle ID: com.thielon.financecoach
+Configure bundle ID: com.appfactory.financecoach
 Set RevenueCat product: AI Finance Coach
 
 ## Revenue

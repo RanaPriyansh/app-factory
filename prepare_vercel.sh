@@ -2,7 +2,7 @@
 
 # Prepare all apps for Vercel deployment
 
-APPS_DIR=~/git-repos/thielon-app-factory/apps
+APPS_DIR=~/git-repos/app-factory/apps
 
 # Create vercel.json for each backend
 for app in ai-resume-builder contract-generator finance-coach landlord-utility-optimizer teacher-assistant tax-optimizer bookkeeping-automator insurance-claims-autofill doctor-note-summarizer micro-course-creator; do

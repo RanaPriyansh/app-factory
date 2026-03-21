@@ -5,7 +5,7 @@
     <key>CFBundleDisplayName</key>
     <string>AI Resume Builder</string>
     <key>CFBundleIdentifier</key>
-    <string>com.thielon.resumebuilder</string>
+    <string>com.appfactory.resumebuilder</string>
     <key>CFBundleName</key>
     <string>ResumeBuilder</string>
     <key>CFBundlePackageType</key>

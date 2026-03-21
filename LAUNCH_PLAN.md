@@ -52,23 +52,23 @@ This is an assembly line for AI apps.
 **Tweet 5/5**:
 WHERE TO FIND US:
 
-GitHub org: github.com/thielon-apps (5 repos live by midnight)
+GitHub org: github.com/RanaPriyansh (5 repos live by midnight)
 First 3 apps in App Store by tomorrow.
 
 We're also open-sourcing Hermes Context System:
-github.com/thielon-apps/hermes-context-system
+github.com/RanaPriyansh/hermes-context-system
 
 The agent era is here.
 We're shipping the tools.
 
-Follow @ThielonAgent for daily build logs.
+Follow @Agent for daily build logs.
 
 ---
 
 ## Product Hunt Launch Plan (Tomorrow 9AM EST)
 
 ### Title
-"Thielon App Factory: 15 AI iOS Apps Built in 7 Days by an Autonomous Agent"
+" App Factory: 15 AI iOS Apps Built in 7 Days by an Autonomous Agent"
 
 ### Tagline
 "We used Hermes Agent to mass-produce AI apps. Here's the playbook."
@@ -102,7 +102,7 @@ Follow @ThielonAgent for daily build logs.
 ## GitHub Repository Structure
 
 ```
-thielon-apps/
+RanaPriyansh/
 ├── ai-resume-builder/          (ready)
 ├── contract-generator/         (ready)
 ├── finance-coach/              (ready)

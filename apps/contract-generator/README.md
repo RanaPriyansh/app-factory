@@ -1,8 +1,8 @@
 # AI Contract Generator
 
-[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/thielon-apps/contract-generator)
-[![License](https://img.shields.io/github/license/thielon-apps/contract-generator)](https://github.com/thielon-apps/contract-generator/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/thielon-apps/contract-generator)](https://github.com/thielon-apps/contract-generator/commits/main)
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/RanaPriyansh/contract-generator)
+[![License](https://img.shields.io/github/license/RanaPriyansh/contract-generator)](https://github.com/RanaPriyansh/contract-generator/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/RanaPriyansh/contract-generator)](https://github.com/RanaPriyansh/contract-generator/commits/main)
 
 AI-powered contract generator for iOS.
 
@@ -23,7 +23,7 @@ Deploy to Vercel, Railway, or Heroku. Set all environment variables.
 
 ## App Store
 iOS app template: iOS/ContractGenerator/
-Configure bundle ID: com.thielon.contractgenerator
+Configure bundle ID: com.appfactory.contractgenerator
 Set RevenueCat product: AI Contract Generator
 
 ## Revenue

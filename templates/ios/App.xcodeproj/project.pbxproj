@@ -5,10 +5,10 @@
     };
     objectVersion = 55;
     objects = {
-        09C74CF0CB5759429DAC178E /* ThielonApp */ = {
+        09C74CF0CB5759429DAC178E /* App */ = {
             isa = PBXGroup;
-            name = ThielonApp;
-            path = ThielonApp;
+            name = App;
+            path = App;
             children = ( A9300350D8745C6F833DAB0D, 5EF223125AE55375B50AE2AD, 9CE912433AF0552F8899137D, F7895F8E1D435523AC6BB73E, 7061359E46355E7FBCA6599D, 830B8D7E12E0518D83AE4D4E, A05A03F2697F5DB19F0CBC50, D2AC2E7C9CA55FA08F684034, 466A3CA0C4CB500498A2DA60 );
             sourceTree = <group>;
         };
@@ -26,14 +26,14 @@
                 DEVELOPMENT_ASSET_PATHS = ;
                 ENABLE_PREVIEWS = YES;
                 GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = ThielonApp/Info.plist;
+                INFOPLIST_FILE = App/Info.plist;
                 INFOPLIST_KEY_CFBundleDisplayName = $(PRODUCT_NAME);
                 INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
                 INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad = $(inherited) UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight;
                 LD_RUNPATH_SEARCH_PATHS = ( $(inherited), @executable_path/Frameworks, @loader_path/Frameworks );
                 MARKETING_VERSION = 1.0.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.thielon.template;
-                PRODUCT_NAME = ThielonApp;
+                PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.template;
+                PRODUCT_NAME = App;
                 SWIFT_VERSION = 5.0;
                 TARGETED_DEVICE_FAMILY = 1,2;
                 VERSIONING_SYSTEM = apple-generic;
@@ -96,11 +96,11 @@
                 DEVELOPMENT_ASSET_PATHS = ;
                 ENABLE_PREVIEWS = YES;
                 GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = ThielonApp/Info.plist;
+                INFOPLIST_FILE = App/Info.plist;
                 LD_RUNPATH_SEARCH_PATHS = ( $(inherited), @executable_path/Frameworks, @loader_path/Frameworks );
                 MARKETING_VERSION = 1.0.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.thielon.template;
-                PRODUCT_NAME = ThielonApp;
+                PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.template;
+                PRODUCT_NAME = App;
                 SWIFT_VERSION = 5.0;
                 TARGETED_DEVICE_FAMILY = 1,2;
                 CODE_SIGN_IDENTITY = Apple Development;
@@ -133,11 +133,11 @@
             isa = PBXBuildFile;
             fileRef = 7061359E46355E7FBCA6599D;
         };
-        9CE912433AF0552F8899137D /* ThielonAIApp.swift */ = {
+        9CE912433AF0552F8899137D /* AIApp.swift */ = {
             isa = PBXFileReference;
             lastKnownFileType = sourcecode.swift;
-            name = ThielonAIApp.swift;
-            path = ThielonAIApp.swift;
+            name = AIApp.swift;
+            path = AIApp.swift;
             sourceTree = <group>;
         };
         A05A03F2697F5DB19F0CBC50 /* Contents.json */ = {
@@ -180,14 +180,14 @@
                 DEVELOPMENT_ASSET_PATHS = ;
                 ENABLE_PREVIEWS = YES;
                 GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = ThielonApp/Info.plist;
+                INFOPLIST_FILE = App/Info.plist;
                 INFOPLIST_KEY_CFBundleDisplayName = $(PRODUCT_NAME);
                 INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
                 INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad = $(inherited) UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight;
                 LD_RUNPATH_SEARCH_PATHS = ( $(inherited), @executable_path/Frameworks, @loader_path/Frameworks );
                 MARKETING_VERSION = 1.0.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.thielon.template;
-                PRODUCT_NAME = ThielonApp;
+                PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.template;
+                PRODUCT_NAME = App;
                 SWIFT_VERSION = 5.0;
                 TARGETED_DEVICE_FAMILY = 1,2;
                 VERSIONING_SYSTEM = apple-generic;
@@ -217,11 +217,11 @@
                 DEVELOPMENT_ASSET_PATHS = ;
                 ENABLE_PREVIEWS = YES;
                 GENERATE_INFOPLIST_FILE = NO;
-                INFOPLIST_FILE = ThielonApp/Info.plist;
+                INFOPLIST_FILE = App/Info.plist;
                 LD_RUNPATH_SEARCH_PATHS = ( $(inherited), @executable_path/Frameworks, @loader_path/Frameworks );
                 MARKETING_VERSION = 1.0.0;
-                PRODUCT_BUNDLE_IDENTIFIER = com.thielon.template;
-                PRODUCT_NAME = ThielonApp;
+                PRODUCT_BUNDLE_IDENTIFIER = com.appfactory.template;
+                PRODUCT_NAME = App;
                 SWIFT_VERSION = 5.0;
                 TARGETED_DEVICE_FAMILY = 1,2;
                 CODE_SIGN_IDENTITY = Apple Distribution;

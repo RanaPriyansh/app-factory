@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Create a minimal but valid Xcode project template for SwiftUI iOS apps.
-Generates ThielonApp.xcodeproj with a project.pbxproj that can be copied and customized.
+Generates App.xcodeproj with a project.pbxproj that can be copied and customized.
 """
 
 import os
@@ -10,8 +10,8 @@ import sys
 from pathlib import Path
 
 TEMPLATE_DIR = Path(__file__).parent.parent / 'templates' / 'ios'
-APP_DIR = TEMPLATE_DIR / 'ThielonApp'
-XCODEPROJ_DIR = TEMPLATE_DIR / 'ThielonApp.xcodeproj'
+APP_DIR = TEMPLATE_DIR / 'App'
+XCODEPROJ_DIR = TEMPLATE_DIR / 'App.xcodeproj'
 
 def generate_uuid(prefix=''):
     """Generate a deterministic-ish UUID based on prefix"""
@@ -106,11 +106,11 @@ def create_pbxproj():
         'sourceTree': '<group>'
     }
     
-    # App group (represents the app folder, e.g., ThielonApp/ or ResumeBuilder/)
+    # App group (represents the app folder, e.g., App/ or ResumeBuilder/)
     objects[app_group_uuid] = {
         'isa': 'PBXGroup',
-        'name': 'ThielonApp',
-        'path': 'ThielonApp',
+        'name': 'App',
+        'path': 'App',
         'children': [],  # populated below
         'sourceTree': '<group>'
     }
@@ -212,14 +212,14 @@ def create_pbxproj():
         'DEVELOPMENT_ASSET_PATHS': '',
         'ENABLE_PREVIEWS': 'YES',
         'GENERATE_INFOPLIST_FILE': 'NO',
-        'INFOPLIST_FILE': 'ThielonApp/Info.plist',
+        'INFOPLIST_FILE': 'App/Info.plist',
         'INFOPLIST_KEY_CFBundleDisplayName': '$(PRODUCT_NAME)',
         'INFOPLIST_KEY_UISupportedInterfaceOrientations': 'UIInterfaceOrientationPortrait',
         'INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad': '$(inherited) UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight',
         'LD_RUNPATH_SEARCH_PATHS': ['$(inherited)', '@executable_path/Frameworks', '@loader_path/Frameworks'],
         'MARKETING_VERSION': '1.0.0',
-        'PRODUCT_BUNDLE_IDENTIFIER': 'com.thielon.template',
-        'PRODUCT_NAME': 'ThielonApp',
+        'PRODUCT_BUNDLE_IDENTIFIER': 'com.appfactory.template',
+        'PRODUCT_NAME': 'App',
         'SWIFT_VERSION': '5.0',
         'TARGETED_DEVICE_FAMILY': '1,2',
         'VERSIONING_SYSTEM': 'apple-generic'
@@ -248,11 +248,11 @@ def create_pbxproj():
         'DEVELOPMENT_ASSET_PATHS': '',
         'ENABLE_PREVIEWS': 'YES',
         'GENERATE_INFOPLIST_FILE': 'NO',
-        'INFOPLIST_FILE': 'ThielonApp/Info.plist',
+        'INFOPLIST_FILE': 'App/Info.plist',
         'LD_RUNPATH_SEARCH_PATHS': ['$(inherited)', '@executable_path/Frameworks', '@loader_path/Frameworks'],
         'MARKETING_VERSION': '1.0.0',
-        'PRODUCT_BUNDLE_IDENTIFIER': 'com.thielon.template',
-        'PRODUCT_NAME': 'ThielonApp',
+        'PRODUCT_BUNDLE_IDENTIFIER': 'com.appfactory.template',
+        'PRODUCT_NAME': 'App',
         'SWIFT_VERSION': '5.0',
         'TARGETED_DEVICE_FAMILY': '1,2'
     }
@@ -345,7 +345,7 @@ def main():
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ThielonApp.xcodeproj">
+      location = "group:App.xcodeproj">
    </FileRef>
 </Workspace>''')
     print(f"Created {workspace_file}")

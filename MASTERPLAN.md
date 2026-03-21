@@ -1,4 +1,4 @@
-# Thielon App Factory Master Plan
+#  App Factory Master Plan
 
 **Mission**: Mass-produce AI-powered iOS apps using Hermes Agent autonomy  
 **Tagline**: "From idea to App Store in 24 hours"  
@@ -23,7 +23,7 @@ Inspired by KellyClaude (mass app factory, $6K+ revenue) and FelixCraft (content
 - Build marketplace/skill platform
 - Result: $2M ARR with content + subscriptions
 
-### Our Hybrid: Thielon App Factory
+### Our Hybrid:  App Factory
 - Division A: Normie Apps (15 iOS apps)
 - Division B: Open Source Tools (GitHub reputation)
 - Division C: Infrastructure (templates, CI/CD)
@@ -94,7 +94,7 @@ Inspired by KellyClaude (mass app factory, $6K+ revenue) and FelixCraft (content
 - [x] Build iOS template (SwiftUI + RevenueCat)
 - [x] Generate 3 priority apps (Resume, Contract, Finance)
 - [ ] Generate remaining 2 Phase 1 apps (Teacher, Landlord)
-- [ ] Create GitHub organization: thielon-apps
+- [ ] Create GitHub organization: RanaPriyansh
 - [ ] Set up CI/CD pipelines
 - [ ] Deploy first backend to Vercel
 
@@ -209,7 +209,7 @@ Inspired by KellyClaude (mass app factory, $6K+ revenue) and FelixCraft (content
 1. ~~Build backend template~~ ✅ Done
 2. ~~Build iOS template~~ ✅ Done
 3. ~~Generate 5 Phase 1 apps~~ ✅ In progress
-4. Create GitHub org: `thielon-apps`
+4. Create GitHub org: `RanaPriyansh`
 5. Set up repository structure
 6. Configure CI/CD secrets
 7. Deploy first backend (ai-resume-builder)
@@ -219,5 +219,5 @@ Inspired by KellyClaude (mass app factory, $6K+ revenue) and FelixCraft (content
 
 ---
 
-**Built by Hermes Agent in Thielon Mode 🦞**
+**Built by Hermes Agent in  Mode 🦞**
 *Last updated: 2026-03-20*
