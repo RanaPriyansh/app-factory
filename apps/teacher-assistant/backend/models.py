@@ -1,50 +1,58 @@
-"""
-Pydantic models for request/response validation
-"""
+"""Pydantic models for the local-first backend template."""
+from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, EmailStr, Field
-from typing import Optional, List, Dict, Any
+from pydantic import BaseModel, ConfigDict, Field
+
 
 class GenerateRequest(BaseModel):
-    email: EmailStr
-    app_type: str = "resume_builder"
-    input: str = Field(..., min_length=10, description="User input for generation")
-    
+    email: Optional[str] = None
+    app_type: str = "teacher_assistant"
+    input: str = Field(..., min_length=3, description="User input for generation")
+    options: Dict[str, Any] = Field(default_factory=dict)
+
+
 class GenerateResponse(BaseModel):
-    success: bool
+    success: bool = True
+    provider: str
+    app_type: str
     output: str
-    tokens_used: Optional[int] = None
+    generation_id: Optional[str] = None
+    warnings: List[str] = Field(default_factory=list)
 
-class UserCreate(BaseModel):
-    email: EmailStr
-    name: Optional[str] = None
 
-class UserUpdate(BaseModel):
-    subscription_status: Optional[str] = None  # active, inactive, trialing
-    stripe_subscription_id: Optional[str] = None
+class HealthResponse(BaseModel):
+    status: str
+    app_name: str
+    ai_provider: str
+    database_provider: str
+    payments_enabled: bool
+
 
 class CheckoutSessionRequest(BaseModel):
-    email: EmailStr
-    success_url: str
-    cancel_url: str
+    email: str
+    success_url: Optional[str] = None
+    cancel_url: Optional[str] = None
+
 
 class CheckoutSessionResponse(BaseModel):
-    session_id: str
-    url: str
+    enabled: bool
+    message: str
+    url: Optional[str] = None
 
-# App-specific response models
-class ResumeResponse(BaseModel):
-    resume_text: str
-    ats_score: Optional[int] = None
-    suggestions: Optional[List[str]] = None
 
-class ContractResponse(BaseModel):
-    contract_text: str
-    clauses_highlights: Optional[Dict[str, str]] = None
-    risk_level: Optional[str] = None
+class UserRecord(BaseModel):
+    model_config = ConfigDict(extra="ignore")
 
-class FinancePlanResponse(BaseModel):
-    summary: str
-    retirement_score: int = Field(..., ge=1, le=10)
-    action_items: List[str]
-    monthly_savings_target: Optional[float] = None
+    id: str
+    email: str
+    generations_used: int = 0
+
+
+class GenerationRecord(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str
+    user_id: Optional[str] = None
+    app_type: str
+    input_text: str
+    output_text: str

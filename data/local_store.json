@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "17c29552-0bbb-44a4-9372-cc8ad6135476",
+      "email": "demo@example.com",
+      "stripe_customer_id": null,
+      "subscription_status": "inactive",
+      "generations_used": 1
+    }
+  ],
+  "generations": [
+    {
+      "id": "25f19921-97f8-4f83-bc2c-04216d36f420",
+      "user_id": "17c29552-0bbb-44a4-9372-cc8ad6135476",
+      "input_text": "5th grade fractions lesson plan",
+      "output_text": "Local demo output\n\nSystem intent: You are a helpful K-12 teaching assistant who creates usable classroom materials.\nUser request: 5th grade fractions lesson plan\n\nSuggested draft:\n1. Goal: Clarify what the user is trying to produce.\n2. Key points: Extract the most important requirements from the input.\n3. First draft: Create a structured response with headings and bullets.\n4. Next step: Ask the user what to refine next.\n\nPrompt used:\nCreate a lesson-plan draft from the topic below.\n\nInclude:\n- objectives\n- materials\n- lesson flow\n- differentiation ideas\n- assessment\n- extension or homework\n\nTopic:\n5th grade fractions lesson plan",
+      "app_type": "teacher_assistant"
+    }
+  ]
+}

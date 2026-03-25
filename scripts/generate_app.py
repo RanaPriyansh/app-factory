@@ -131,75 +131,44 @@ def generate_app(app_key):
     backend_dir = app_dir / 'backend'
     shutil.copytree(TEMPLATE_BACKEND, backend_dir)
     
-    # Customize backend files
-    replacements = {
-        'APP_NAME': config['display'],
-        'APP_PRICE': str(config['price']),
-        'BUNDLE_ID': config['bundle_id'],
-        'APP_KEY': app_key
-    }
-    
-    # Update config.py
-    config_content = f'''from pydantic_settings import BaseSettings
-from typing import Optional
+    # Customize backend files for the generated app
+    config_py = (backend_dir / 'config.py').read_text()
+    config_py = config_py.replace('APP_NAME: str = "AI SaaS Backend"', f'APP_NAME: str = "{config["display"]}"')
+    (backend_dir / 'config.py').write_text(config_py)
 
-class Settings(BaseSettings):
-    ANTHROPIC_API_KEY: str
-    CLAUDE_MODEL: str = "claude-3-5-sonnet-20241022"
-    MAX_TOKENS: int = 4000
-    TEMPERATURE: float = 0.7
-    STRIPE_SECRET_KEY: str
-    STRIPE_PUBLISHABLE_KEY: str
-    STRIPE_PRICE_ID: str
-    STRIPE_WEBHOOK_SECRET: str
-    SUPABASE_URL: str
-    SUPABASE_ANON_KEY: str
-    SECRET_KEY: str
-    APP_NAME: str = "{config['display']}"
-    APP_ENV: str = "production"
-    REDIS_URL: Optional[str] = None
-    SENTRY_DSN: Optional[str] = None
-    RESEND_API_KEY: Optional[str] = None
-    class Config:
-        env_file = ".env"
-settings = Settings()
-'''
-    (backend_dir / 'config.py').write_text(config_content)
-    
-    # Update main.py title
-    main_py = (backend_dir / 'main.py').read_text()
-    main_py = main_py.replace('AI SaaS Backend', config['display'])
-    (backend_dir / 'main.py').write_text(main_py)
+    env_example = (backend_dir / '.env.example').read_text()
+    env_example = env_example.replace('APP_NAME="AI SaaS Backend"', f'APP_NAME="{config["display"]}"')
+    env_example = env_example.replace('DEFAULT_APP_TYPE=resume_builder', f'DEFAULT_APP_TYPE={config["prompt_key"]}')
+    (backend_dir / '.env.example').write_text(env_example)
     
     # Create app-specific README
     (app_dir / 'README.md').write_text(f'''# {config['display']}
 
-AI-powered {app_key.replace('-', ' ')} for iOS.
+Generated from App Factory as a local-first MVP.
 
-## Features
-- AI generation using Claude API
-- Stripe subscription payments (${config['price']}/month)
-- Freemium model: 1 free generation
-- PDF export (coming soon)
+## Current backend path
 
-## Setup
-1. Copy `.env.example` to `.env` and fill in your API keys
-2. Run: `pip install -r requirements.txt`
-3. Run: `uvicorn main:app --reload`
-4. Open http://localhost:8000/docs for API docs
+The backend is designed to run locally without paid services.
 
-## Deployment
-Deploy to Vercel, Railway, or Heroku. Set all environment variables.
+### Local setup
+1. `cd backend`
+2. `cp .env.example .env`
+3. Leave `AI_PROVIDER=local`
+4. Leave `DATABASE_PROVIDER=local`
+5. `pip install -r requirements.txt`
+6. `uvicorn main:app --reload`
 
-## App Store
-iOS app template: iOS/{config['app_name']}/
-Configure bundle ID: {config['bundle_id']}
-Set RevenueCat product: {config['display']}
+### Example request
+`curl -X POST http://localhost:8000/api/v1/generate -H 'Content-Type: application/json' -d '{{"app_type":"{config['prompt_key']}","input":"Create a first draft for {config['display']}","email":"demo@example.com"}}'`
 
-## Revenue
-- Freemium: 1 free generation
-- Pro: ${config['price']}/month
-- Target: 100+ subscribers in first month = ${config['price']*100}/mo
+## Notes
+- Anthropic is optional, not required
+- Stripe and Supabase are optional scaffolding
+- iOS template work still needs follow-up before production use
+
+## App metadata
+- Bundle ID: {config['bundle_id']}
+- Suggested price if you later commercialize it: ${config['price']}/month
 ''')
     
     # 2. iOS
@@ -257,52 +226,33 @@ Set RevenueCat product: {config['display']}
     # Create deployment guide
     (app_dir / 'DEPLOYMENT.md').write_text(f'''# Deploying {config['display']}
 
-## Backend (One-time)
-1. Create Stripe product and price (${config['price']}/month)
-2. Create Supabase database (users, generations tables)
-3. Deploy backend to Vercel/Railway
-4. Set webhook endpoint in Stripe dashboard
+## Recommended MVP path
 
-## iOS App
-1. Open Xcode project in iOS/{config['app_name']}/
-2. Set bundle identifier: {config['bundle_id']}
-3. Add RevenueCat API key
-4. Configure App Store Connect entry
-5. Build and submit for review
-6. Release to TestFlight first
+Start local first.
 
-## RevenueCat Setup
-- Create entitlement: "premium"
-- Create product: "{config['display']}" (${config['price']}/mo)
-- Add to configurations in Xcode
+### Backend
+1. `cd backend`
+2. `cp .env.example .env`
+3. Keep `AI_PROVIDER=local`
+4. Keep `DATABASE_PROVIDER=local`
+5. `pip install -r requirements.txt`
+6. `uvicorn main:app --reload`
 
-## Database Schema
-Run in Supabase SQL editor:
+This gives you a working demo backend without Stripe, Supabase, or Anthropic.
 
-CREATE TABLE users (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    email TEXT UNIQUE NOT NULL,
-    stripe_customer_id TEXT,
-    subscription_status TEXT DEFAULT 'inactive',
-    generations_used INTEGER DEFAULT 0,
-    created_at TIMESTAMP DEFAULT NOW()
-);
+## Optional upgrades later
 
-CREATE TABLE generations (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    user_id UUID REFERENCES users(id),
-    input_text TEXT,
-    output_text TEXT,
-    app_type TEXT,
-    created_at TIMESTAMP DEFAULT NOW()
-);
+- Anthropic: set `AI_PROVIDER=anthropic` and add `ANTHROPIC_API_KEY`
+- Supabase: set `DATABASE_PROVIDER=supabase` and add credentials
+- Stripe: set `PAYMENTS_ENABLED=true` and add Stripe keys
 
-CREATE FUNCTION increment_generations(user_id UUID)
-RETURNS void AS $$
-BEGIN
-    UPDATE users SET generations_used = generations_used + 1 WHERE id = user_id;
-END;
-$$ LANGUAGE plpgsql;
+## Important
+
+Commercial integrations in this repo are scaffolding only. They are not production-ready billing or app-store workflows.
+
+## iOS
+
+The generated iOS project exists under `iOS/{config['app_name']}/`, but backend rescue was prioritized over full iOS productization.
 ''')
     
     print(f"✓ Generated {config['display']}")

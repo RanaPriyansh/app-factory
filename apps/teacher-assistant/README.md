@@ -1,32 +1,27 @@
 # Teacher Assistant
 
-[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/RanaPriyansh/teacher-assistant)
-[![License](https://img.shields.io/github/license/RanaPriyansh/teacher-assistant)](https://github.com/RanaPriyansh/teacher-assistant/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/RanaPriyansh/teacher-assistant)](https://github.com/RanaPriyansh/teacher-assistant/commits/main)
+Generated from App Factory as a local-first MVP.
 
-AI-powered teacher assistant for iOS.
+## Current backend path
 
-## Features
-- AI generation using Claude API
-- Stripe subscription payments ($15/month)
-- Freemium model: 1 free generation
-- PDF export (coming soon)
+The backend is aligned to run locally without paid services.
 
-## Setup
-1. Copy `.env.example` to `.env` and fill in your API keys
-2. Run: `pip install -r requirements.txt`
-3. Run: `uvicorn main:app --reload`
-4. Open http://localhost:8000/docs for API docs
+### Local setup
+1. `cd backend`
+2. `cp .env.example .env`
+3. Leave `AI_PROVIDER=local`
+4. Leave `DATABASE_PROVIDER=local`
+5. `pip install -r requirements.txt`
+6. `uvicorn main:app --reload`
 
-## Deployment
-Deploy to Vercel, Railway, or Heroku. Set all environment variables.
+### Example request
+`curl -X POST http://localhost:8000/api/v1/generate -H 'Content-Type: application/json' -d '{"app_type":"teacher_assistant","input":"Create a 4th grade reading comprehension lesson plan about identifying main idea with guided practice and an exit ticket.","email":"demo@example.com"}'`
 
-## App Store
-iOS app template: iOS/TeacherAssistant/
-Configure bundle ID: com.appfactory.teacherassistant
-Set RevenueCat product: Teacher Assistant
+## Notes
+- Anthropic is optional, not required
+- Stripe and Supabase are optional scaffolding
+- iOS template work still needs follow-up before production use
 
-## Revenue
-- Freemium: 1 free generation
-- Pro: $15/month
-- Target: 100+ subscribers in first month = $1500/mo
+## App metadata
+- Bundle ID: com.appfactory.teacherassistant
+- Suggested price if you later commercialize it: $15/month

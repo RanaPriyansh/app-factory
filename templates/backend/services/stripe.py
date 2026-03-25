@@ -1,54 +1,42 @@
-"""
-Stripe integration for subscription payments
-"""
+"""Optional Stripe helpers used only when payments are explicitly enabled."""
 
-import os
-import stripe
-from typing import Optional, Dict, Any
-from .config import settings
+from __future__ import annotations
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+from typing import Optional
+
+from config import settings
+
 
 class StripeService:
-    @staticmethod
-    def create_customer(email: str, name: Optional[str] = None) -> stripe.Customer:
-        """Create a Stripe customer"""
-        return stripe.Customer.create(
-            email=email,
-            name=name
-        )
-    
-    @staticmethod
-    def create_checkout_session(customer_id: str, price_id: str, success_url: str, cancel_url: str) -> stripe.checkout.Session:
-        """Create a checkout session for subscription"""
+    def __init__(self, api_key: Optional[str] = None):
+        self.api_key = api_key or settings.STRIPE_SECRET_KEY
+
+    def is_configured(self) -> bool:
+        return bool(settings.PAYMENTS_ENABLED and self.api_key and settings.STRIPE_PRICE_ID)
+
+    def _require_client(self):
+        if not self.is_configured():
+            raise ValueError("Stripe is not enabled or fully configured")
+        try:
+            import stripe
+        except ImportError as exc:
+            raise RuntimeError("stripe package is not installed") from exc
+        stripe.api_key = self.api_key
+        return stripe
+
+    def create_checkout_session(self, email: str, success_url: str, cancel_url: str):
+        stripe = self._require_client()
         return stripe.checkout.Session.create(
-            customer=customer_id,
-            payment_method_types=['card'],
-            line_items=[{
-                'price': price_id,
-                'quantity': 1,
-            }],
-            mode='subscription',
-            success_url=success_url + '?session_id={CHECKOUT_SESSION_ID}',
+            customer_email=email,
+            payment_method_types=["card"],
+            line_items=[{"price": settings.STRIPE_PRICE_ID, "quantity": 1}],
+            mode="subscription",
+            success_url=success_url,
             cancel_url=cancel_url,
         )
-    
-    @staticmethod
-    def retrieve_session(session_id: str) -> stripe.checkout.Session:
-        """Retrieve checkout session"""
-        return stripe.checkout.Session.retrieve(session_id)
-    
-    @staticmethod
-    def create_billing_portal(customer_id: str, return_url: str) -> stripe.billing_portal.Session:
-        """Create billing portal session for subscription management"""
-        return stripe.billing_portal.Session.create(
-            customer=customer_id,
-            return_url=return_url,
-        )
-    
-    @staticmethod
-    def construct_event(payload: bytes, signature: str) -> stripe.Event:
-        """Verify and construct webhook event"""
-        return stripe.Webhook.construct_event(
-            payload, signature, settings.STRIPE_WEBHOOK_SECRET
-        )
+
+    def construct_event(self, payload: bytes, signature: str):
+        stripe = self._require_client()
+        if not settings.STRIPE_WEBHOOK_SECRET:
+            raise ValueError("STRIPE_WEBHOOK_SECRET is required for webhook verification")
+        return stripe.Webhook.construct_event(payload, signature, settings.STRIPE_WEBHOOK_SECRET)

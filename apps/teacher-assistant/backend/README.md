@@ -1,113 +1,58 @@
-# Backend Template for AI SaaS Apps
+# Teacher Assistant backend
 
-## Architecture
-FastAPI backend with:
-- Claude API integration (Anthropic)
-- Stripe subscription payments
-- Supabase database (PostgreSQL)
-- CORS configuration for iOS app
-- Environment-based configuration
+This backend is aligned to the rescued local-first app-factory MVP path.
 
-## Quick Start
+What works now:
+- FastAPI backend that compiles cleanly
+- `/health` endpoint
+- `/api/v1/generate` in local mode without paid APIs
+- local JSON persistence for users and generations
+- `teacher_assistant` prompt path for lesson-plan style drafts
+- optional Anthropic, Stripe, and Supabase scaffolding
 
-1. Clone and install:
-```bash
-pip install -r requirements.txt
-```
+What is intentionally not production-ready:
+- Stripe subscription flows
+- Supabase schema management
+- App Store / RevenueCat automation
+- commercial billing and multi-tenant auth
 
-2. Copy `.env.example` to `.env` and fill in:
-```
-ANTHROPIC_API_KEY=your_key
-STRIPE_SECRET_KEY=sk_live_xxx
-STRIPE_PUBLISHABLE_KEY=pk_live_xxx
-STRIPE_PRICE_ID=price_xxx
-SUPABASE_URL=https://xxx.supabase.co
-SUPABASE_ANON_KEY=eyxxx
-SECRET_KEY=random_secret_here
-```
+## Quick start
 
-3. Run locally:
-```bash
-uvicorn main:app --reload
-```
+1. `cd backend`
+2. `cp .env.example .env`
+3. Leave `AI_PROVIDER=local`
+4. Leave `DATABASE_PROVIDER=local`
+5. `pip install -r requirements.txt`
+6. `uvicorn main:app --reload`
 
-4. Deploy to Vercel/Railway/Heroku:
-- Push to GitHub
-- Connect repository
-- Set environment variables
-- Deploy
+Docs will be available at `http://localhost:8000/docs`.
 
-## Template Structure
+## Local demo request
 
-```
-backend/
-├── main.py              # FastAPI app
-├── requirements.txt     # Python dependencies
-├── .env.example         # Environment template
-├── config.py           # Configuration loader
-├── models.py           # Pydantic models
-├── routes/
-│   ├── generate.py    # AI generation endpoint
-│   ├── payments.py    # Stripe webhooks/checkout
-│   └── auth.py        # User auth (optional)
-├── services/
-│   ├── claude.py      # Claude API wrapper
-│   ├── stripe.py      # Stripe integration
-│   └── database.py    # Supabase client
-└── utils/
-    └── prompts.py     # AI prompts per app type
-```
+`curl -X POST http://localhost:8000/api/v1/generate -H 'Content-Type: application/json' -d '{"app_type":"teacher_assistant","email":"demo@example.com","input":"Create a 5th grade lesson plan on fractions with a short warm-up, guided practice, differentiation ideas, and an exit ticket."}'`
 
-## Customizing for Each App
+The local provider returns a deterministic teacher-assistant draft so the app can demo without Anthropic, Stripe, or Supabase.
 
-1. Update `models.py` with app-specific schemas
-2. Modify `services/claude.py` prompt for your use case
-3. Adjust `routes/generate.py` to handle your input/output
-4. Update Stripe price ID and product name
-5. Customize database tables in Supabase
+## Optional providers
 
-## Stripe Subscription Flow
+Anthropic:
+- set `AI_PROVIDER=anthropic`
+- add `ANTHROPIC_API_KEY`
 
-- `POST /create-checkout-session` → returns session ID
-- Redirect client to Stripe-hosted checkout
-- Webhook `/stripe-webhook` handles subscription events
-- Update user's subscription status in database
+Supabase:
+- set `DATABASE_PROVIDER=supabase`
+- add `SUPABASE_URL` and `SUPABASE_ANON_KEY`
 
-## Claude API Prompt Engineering
+Stripe:
+- set `PAYMENTS_ENABLED=true`
+- add Stripe environment variables
+- treat this as scaffolding, not a production billing system
 
-Each app needs specialized prompts. Store in `utils/prompts.py`:
+## File guide
 
-```python
-PROMPTS = {
-    'resume_builder': """You are an expert resume writer...""",
-    'contract_generator': """You are a legal contract specialist...""",
-    'finance_coach': """You are a certified financial planner...""",
-}
-```
-
-## Deployment Targets
-
-- **Vercel**: Serverless, easy Stripe integration
-- **Railway**: Simple Docker deployment
-- **Heroku**: Hobby tier free (with limits)
-- **Fly.io**: Global edge deployment
-
-## Monitoring & Logging
-
-- Use `logging` module (structured logging)
-- Sentry for error tracking (optional)
-- Vercel/Railway built-in logs
-- Stripe dashboard for payment metrics
-
-## Cost Optimization
-
-- Claude API: ~$0.015 per 1K tokens (Sonnet)
-- Stripe: 2.9% + $0.30 per transaction
-- Supabase: Free tier (500MB DB, 10K rows)
-- Vercel: Free tier (100GB-hrs, unlimited bandwidth)
-
-Break-even: ~100 subscribers at $9/mo = $900 MRR → $270/month API costs at 1M tokens/day
-
-## License
-
-MIT - Open source, use freely
+- `main.py`: FastAPI app and lifecycle wiring
+- `routes/generate.py`: generation endpoint
+- `routes/payments.py`: payment stubs
+- `services/claude.py`: local-first AI service with Anthropic fallback
+- `services/database.py`: local JSON persistence with optional Supabase mode
+- `utils/prompts.py`: prompt catalog including `teacher_assistant`
